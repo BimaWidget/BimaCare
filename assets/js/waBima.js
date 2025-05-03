@@ -103,7 +103,7 @@
   popup.id = "chat-popup";
   popup.innerHTML = `
     <div class="chat-header">
-      <img src="https://via.placeholder.com/40" alt="Zulfikar">
+      <img src="https://assets.zyrosite.com/AQExWVyreVSDg6Ek/foto-admin-Awv43GJl45uPkgga.png" alt="Zulfikar">
       <div>
         <div class="name">Zulfikar</div>
         <div class="role">Bima Care Officer</div>
