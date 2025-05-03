@@ -35,7 +35,6 @@
   waBtn.rel = 'noopener noreferrer';
   waBtn.innerHTML = `
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" />
-    Chat via WhatsApp
   `;
 
   document.body.appendChild(waBtn);
