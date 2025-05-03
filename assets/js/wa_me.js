@@ -1,5 +1,4 @@
 (function () {
-  // url foto profil
   const profileImageURL = "https://assets.zyrosite.com/AQExWVyreVSDg6Ek/foto-admin-Awv43GJl45uPkgga.png";
 
   const styles = `
@@ -97,22 +96,19 @@
     }
   `;
 
-  // Inject style
   const styleSheet = document.createElement("style");
   styleSheet.innerText = styles;
   document.head.appendChild(styleSheet);
 
-  // WhatsApp button
   const waBtn = document.createElement("div");
   waBtn.id = "wa-button";
   waBtn.innerHTML = `
-    <svg viewBox="0 0 32 32">
-      <path d="M16.002 3C9.376 3 4 8.377 4 15c0 2.531.82 4.872 2.219 6.803L4 29l7.361-2.193A12.897 12.897 0 0 0 16.002 27C22.625 27 28 21.623 28 15S22.625 3 16.002 3zm0 2c5.513 0 10 4.486 10 10 0 5.513-4.487 10-10 10a10.89 10.89 0 0 1-5.457-1.459l-.387-.229-4.113 1.227 1.219-3.551-.25-.404A9.95 9.95 0 0 1 6 15c0-5.514 4.486-10 10.002-10zm-2.91 5a.977.977 0 0 0-.48.109c-.293.153-.627.527-.699.866-.073.338-.233 1.037.51 2.28.744 1.243 2.18 2.635 4.834 3.539.893.278 1.595.444 2.191.444.597 0 1.036-.178 1.327-.437.291-.26.438-.592.49-.825.052-.233.057-.452.042-.621-.016-.17-.066-.32-.12-.433-.055-.113-.826-1.055-1.135-1.27-.31-.215-.495-.276-.695-.183-.2.093-.776.377-.937.442-.16.065-.31.099-.57-.05-.26-.148-1.096-.46-2.09-1.464-.771-.773-1.295-1.722-1.45-1.98-.155-.259-.015-.397.05-.46.064-.063.134-.075.22-.126.086-.052.293-.148.453-.296.16-.149.215-.248.314-.43.098-.181.053-.343.004-.473-.049-.131-.457-1.108-.626-1.45-.17-.342-.357-.37-.488-.377a1.128 1.128 0 0 0-.167-.013z"/>
-    </svg>
-  `;
+  <svg viewBox="0 0 32 32">
+    <path d="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"/>
+  </svg>
+`;
   document.body.appendChild(waBtn);
 
-  // Popup box
   const popup = document.createElement("div");
   popup.id = "chat-popup";
   popup.innerHTML = `
@@ -133,9 +129,29 @@
       <button class="send-btn">➤</button>
     </div>
   `;
+const targetNumber = "628158117748";
+
+waBtn.addEventListener("click", () => {
+  popup.style.display = popup.style.display === "none" ? "block" : "none";
+});
+
+document.getElementById("close-chat").addEventListener("click", () => {
+  popup.style.display = "none";
+});
+
+const sendBtn = popup.querySelector(".send-btn");
+const inputField = popup.querySelector(".chat-input");
+
+sendBtn.addEventListener("click", () => {
+  const message = inputField.value.trim();
+  if (message) {
+    const url = `https://wa.me/${targetNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+});
+
   document.body.appendChild(popup);
 
-  // Toggle
   waBtn.addEventListener("click", () => {
     popup.style.display = popup.style.display === "none" ? "block" : "none";
   });
