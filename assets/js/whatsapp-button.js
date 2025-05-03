@@ -4,38 +4,36 @@
 
   const style = document.createElement('style');
   style.textContent = `
-    .wa-float-btn {
+    .wa-float-icon {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background-color: #25D366;
-      color: white;
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      text-decoration: none;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
       z-index: 10000;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      cursor: pointer;
     }
-    .wa-float-btn img {
-      width: 20px;
-      height: 20px;
+    .wa-float-icon img {
+      width: 28px;
+      height: 28px;
     }
   `;
   document.head.appendChild(style);
 
-  const waBtn = document.createElement('a');
-  waBtn.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-  waBtn.className = 'wa-float-btn';
-  waBtn.target = '_blank';
-  waBtn.rel = 'noopener noreferrer';
-  waBtn.innerHTML = `
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" />
+  const waIcon = document.createElement('a');
+  waIcon.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  waIcon.className = 'wa-float-icon';
+  waIcon.target = '_blank';
+  waIcon.rel = 'noopener noreferrer';
+  waIcon.innerHTML = `
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" />
   `;
 
-  document.body.appendChild(waBtn);
+  document.body.appendChild(waIcon);
 })();
