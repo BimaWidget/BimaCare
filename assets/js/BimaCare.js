@@ -1,5 +1,6 @@
 (function () {
   const profileImageURL = "https://assets.zyrosite.com/AQExWVyreVSDg6Ek/foto-admin-Awv43GJl45uPkgga.png";
+  const targetNumber = "628158117748";
 
   const styles = `
     #wa-button {
@@ -18,10 +19,10 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
-    #wa-button svg {
+    #wa-button img {
       width: 30px;
       height: 30px;
-      fill: white;
+      filter: invert(1);
     }
 
     #chat-popup {
@@ -103,10 +104,8 @@
   const waBtn = document.createElement("div");
   waBtn.id = "wa-button";
   waBtn.innerHTML = `
-  <svg viewBox="0 0 32 32">
-    <path d="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"/>
-  </svg>
-`;
+    <img src="https://assets.zyrosite.com/AQExWVyreVSDg6Ek/whatsapp-A1aP30eGaMSVjRRN.svg" alt="WhatsApp" />
+  `;
   document.body.appendChild(waBtn);
 
   const popup = document.createElement("div");
@@ -129,27 +128,6 @@
       <button class="send-btn">➤</button>
     </div>
   `;
-const targetNumber = "628158117748";
-
-waBtn.addEventListener("click", () => {
-  popup.style.display = popup.style.display === "none" ? "block" : "none";
-});
-
-document.getElementById("close-chat").addEventListener("click", () => {
-  popup.style.display = "none";
-});
-
-const sendBtn = popup.querySelector(".send-btn");
-const inputField = popup.querySelector(".chat-input");
-
-sendBtn.addEventListener("click", () => {
-  const message = inputField.value.trim();
-  if (message) {
-    const url = `https://wa.me/${targetNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-  }
-});
-
   document.body.appendChild(popup);
 
   waBtn.addEventListener("click", () => {
@@ -158,5 +136,16 @@ sendBtn.addEventListener("click", () => {
 
   document.getElementById("close-chat").addEventListener("click", () => {
     popup.style.display = "none";
+  });
+
+  const sendBtn = popup.querySelector(".send-btn");
+  const inputField = popup.querySelector(".chat-input");
+
+  sendBtn.addEventListener("click", () => {
+    const message = inputField.value.trim();
+    if (message) {
+      const url = `https://wa.me/${targetNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
   });
 })();
