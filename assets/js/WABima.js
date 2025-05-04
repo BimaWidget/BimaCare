@@ -1,5 +1,6 @@
 (function () {
   const profileImageURL = "https://assets.zyrosite.com/AQExWVyreVSDg6Ek/foto-admin-Awv43GJl45uPkgga.png";
+  const whatsappIconURL = "https://assets.zyrosite.com/AQExWVyreVSDg6Ek/whatsapp-A1aP30eGaMSVjRRN.svg";
   const targetNumber = "628158117748";
 
   const styles = `
@@ -22,7 +23,6 @@
     #wa-button img {
       width: 30px;
       height: 30px;
-      filter: invert(1);
     }
 
     #chat-popup {
@@ -103,9 +103,7 @@
 
   const waBtn = document.createElement("div");
   waBtn.id = "wa-button";
-  waBtn.innerHTML = `
-    <img src="https://assets.zyrosite.com/AQExWVyreVSDg6Ek/whatsapp-A1aP30eGaMSVjRRN.svg" alt="WhatsApp" />
-  `;
+  waBtn.innerHTML = `<img src="${whatsappIconURL}" alt="WhatsApp" />`;
   document.body.appendChild(waBtn);
 
   const popup = document.createElement("div");
@@ -130,14 +128,17 @@
   `;
   document.body.appendChild(popup);
 
+  // Toggle popup
   waBtn.addEventListener("click", () => {
     popup.style.display = popup.style.display === "none" ? "block" : "none";
   });
 
-  document.getElementById("close-chat").addEventListener("click", () => {
+  // Close button
+  popup.querySelector("#close-chat").addEventListener("click", () => {
     popup.style.display = "none";
   });
 
+  // Send to WhatsApp
   const sendBtn = popup.querySelector(".send-btn");
   const inputField = popup.querySelector(".chat-input");
 
