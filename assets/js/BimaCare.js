@@ -33,7 +33,7 @@
     .chat-header {
       display: flex;
       align-items: center;
-      background: #25D366;
+      background: #0e533f;
       color: #fff;
       padding: 10px;
     }
@@ -80,7 +80,7 @@
       height: 40px;
       margin: 10px;
       border: none;
-      background: #25D366;
+      background: #0e533f;
       color: white;
       font-size: 18px;
       cursor: pointer;
@@ -95,7 +95,7 @@
   const waBtn = document.createElement("div");
   waBtn.id = "wa-button";
   waBtn.innerHTML = `
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    <img src="https://assets.zyrosite.com/AQExWVyreVSDg6Ek/whatsapp-A1aP30eGaMSVjRRN.svg" alt="WhatsApp" />
   `;
   document.body.appendChild(waBtn);
 
@@ -112,7 +112,8 @@
     </div>
     <div class="chat-message">
       <p>Hi there! 👋</p>
-      <p>Looking for the best offers from Bima Bioenergy? Let’s chat!</p>
+      <p>Looking for the best offers from Bima Bioenergy?</p>
+      <p>Let’s chat!</p>
     </div>
     <div style="display: flex; align-items: center;">
       <input type="text" class="chat-input" placeholder="Enter Your Message..." />
